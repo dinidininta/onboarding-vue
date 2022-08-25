@@ -1,5 +1,8 @@
 <template>
   <div class="hello">
+    <label for="title"/>
+    <input id="title" v-model="title" @change="setTitle"/>
+
     <h1>{{ msg }}</h1>
     <p>
       For a guide and recipes on how to configure / customize this project,<br>
@@ -34,10 +37,23 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex';
+
 export default {
   name: 'HelloWorld',
   props: {
     msg: String,
+  },
+  data() {
+    return {
+      title: null,
+    };
+  },
+  methods: {
+    ...mapMutations(['changeParentTitle']),
+    setTitle() {
+      this.changeParentTitle(this.title);
+    },
   },
 };
 </script>

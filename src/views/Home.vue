@@ -14,5 +14,11 @@ export default {
   components: {
     HelloWorld,
   },
+  mounted() {
+    console.log('mounted');
+  },
+  beforeDestroy() {
+    console.log('destroy home');
+  },
 };
 </script>
